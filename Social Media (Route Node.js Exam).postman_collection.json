@@ -1,0 +1,680 @@
+{
+	"info": {
+		"_postman_id": "8176a826-1ae4-4f32-a891-b888fdf246f7",
+		"name": "Social Media (Route Node.js Exam)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14223219"
+	},
+	"item": [
+		{
+			"name": "Post & Comment",
+			"item": [
+				{
+					"name": "Home Page (Get all Public Posts)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"post"
+							]
+						},
+						"description": "Here you can view only all PUBLIC posts that were posted by all registered users.\n\nYou don't need to be registered to access this endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk3ZWI5NDI3MDkwZmQ3NDA3MGEzMCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQ0MTE3NSwiZXhwIjoxNjgwNDQyOTc1fQ.OdI0R60qI44clg3wXR_bcBqvmzFUTa2WbgrIJttHXYI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/MustafaDMS/OneDrive/Pictures/Screenshots/2021-10-05.png"
+								},
+								{
+									"key": "title",
+									"value": "Mustafa Post 4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "lorem aijralskdn asoidj a;lskdn ;aoisda ;kslnd",
+									"type": "text"
+								},
+								{
+									"key": "postPrivacy",
+									"value": "onlyMe",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"post"
+							]
+						},
+						"description": "To create a Post, you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\nIt's mandotary to add a picture, title.\n\ndescription is optional.\n\npostPrivacy is optional, and set to Public by default."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk3NzgwMDcwYTZjNTllOGNjNjA2NCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQ0MDI5NywiZXhwIjoxNjgwNDQyMDk3fQ.q4JkEpgCqu2rG7gyIjcf233O9oYY740Eq0v7bguq2DM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Hakuna Matata",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Updated description",
+									"type": "text"
+								},
+								{
+									"key": "postPrivacy",
+									"value": "onlyMe",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/post/642970eb35231458ec2d14bf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"post",
+								"642970eb35231458ec2d14bf"
+							]
+						},
+						"description": "To Update a Post, you must be:\n\nStartFragment\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\n4- Your are the owner of the Post.\n\n5- The Post ID you've entered in the params, matches a real Post ID.\n\nYou can update any of { title, description, postPrivacy }, since they're all optional."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjcxZDYyMTE5ODM5MjY4OTIxMDI3MSIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQzNzMyMiwiZXhwIjoxNjgwNDM5MTIyfQ.mibzvr8wKX_ysECqtl0hTAfu23w8A_HO7-6TFz3EVMI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/post/642894f03e78926238667a96",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"post",
+								"642894f03e78926238667a96"
+							],
+							"query": [
+								{
+									"key": "authorization",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "To delete a Post you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\n4- You are the owner of the Post\n\n5- The Post ID you entered in params, matches a real Post ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Like Post",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk3ZWI5NDI3MDkwZmQ3NDA3MGEzMCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQ0MTExMCwiZXhwIjoxNjgwNDQyOTEwfQ.drx8VhQHldinAuYwSLduAxNMkhyaBGhf6AGPYYSeIWg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/post/642840b1c14e645bf518e2b6/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"post",
+								"642840b1c14e645bf518e2b6",
+								"like"
+							]
+						},
+						"description": "To like a Post you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\n4- The Post ID you entered in params, matches a real Post ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Dislike Post",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjg0NjQzMjM4NTY2YzgxZTM4ZmQzZCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDM3MDc4NSwiZXhwIjoxNjgwMzcyNTg1fQ.DPZWgOwI_Yww86dAVt1Wq2eCCgTQGmLXLc0douqvzBo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/post/642840b1c14e645bf518e2b6/dislike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"post",
+								"642840b1c14e645bf518e2b6",
+								"dislike"
+							]
+						},
+						"description": "StartFragment\n\nTo dislike a Post you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\n4- The Post ID you entered in params, matches a real Post ID.\n\nEndFragment"
+					},
+					"response": []
+				},
+				{
+					"name": "Comment on Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk3ZWI5NDI3MDkwZmQ3NDA3MGEzMCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQ0MTE3NSwiZXhwIjoxNjgwNDQyOTc1fQ.OdI0R60qI44clg3wXR_bcBqvmzFUTa2WbgrIJttHXYI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/MustafaDMS/OneDrive/Pictures/Screenshots/2022-10-28.png",
+									"disabled": true
+								},
+								{
+									"key": "text",
+									"value": "Comment Three",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/post/642877be1fc5462b0def678e/comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"post",
+								"642877be1fc5462b0def678e",
+								"comment"
+							]
+						},
+						"description": "StartFragment\n\nTo comment on a Post you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\n4- The Post ID you entered in params, matches a real Post ID.\n\nEndFragmen"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"description": "StartFragment\n\nTo delete a Comment on a Post you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\n4- The Post ID you entered in params, matches a real Post ID\n\n5- You are the owner of the comment\n\nEndFragment"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk3NzgwMDcwYTZjNTllOGNjNjA2NCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQ0MDUxNCwiZXhwIjoxNjgwNDQyMzE0fQ.1lySKuzoXlyl0J7ISKrmFjFZK3VAa16W1XrO_7K0pmQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Muhammed\",\r\n    \"age\": 35,\r\n    \"phone\": \"01098564683\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								""
+							]
+						},
+						"description": "StartFragment\n\nTo Update User you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\nYou can update any of \\[ username, age, phone \\], since all of them are optional\n\nEndFragment"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk3NzgwMDcwYTZjNTllOGNjNjA2NCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQ0MDUxNCwiZXhwIjoxNjgwNDQyMzE0fQ.1lySKuzoXlyl0J7ISKrmFjFZK3VAa16W1XrO_7K0pmQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								""
+							]
+						},
+						"description": "To Update User you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\nYou are deleting your account ONLY, and you can't delete any other account."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk3ZWI5NDI3MDkwZmQ3NDA3MGEzMCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQ0MTE3NSwiZXhwIjoxNjgwNDQyOTc1fQ.OdI0R60qI44clg3wXR_bcBqvmzFUTa2WbgrIJttHXYI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/user/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"profile"
+							]
+						},
+						"description": "To Get your own User profile you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\nIn this endpoint, you can view your own profile, with all of your posts, including \\[ public, private \\] posts."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjcxZDYyMTE5ODM5MjY4OTIxMDI3MSIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDI4Njg5NSwiZXhwIjoxNjgwMjg4Njk1fQ.xu3BE9Jcb8usjSZZ1oWtxY39S9m6Cbd7NW41xjXwStU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"AA!45aaa\",\r\n    \"newPassword\": \"ZZ!45aaa\",\r\n    \"cPassword\": \"ZZ!45aaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/user/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"password"
+							]
+						},
+						"description": "To Update User Password you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\n4- Your new password isn't same as old password.\n\nYour password should follow specific pattern\n\nsomething that looks likes this: ZZ!45aaa\n\nEndFragmen"
+					},
+					"response": []
+				},
+				{
+					"name": "Share Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/user/64271d621198392689210271/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"64271d621198392689210271",
+								"profile"
+							]
+						},
+						"description": "To view a shared profile, you only need to put real user profile's ID in the request params.\n\nYou can only view his:\n\n1- Username\n\n2- Email\n\n3- Profile Picture\n\n4- Firstname\n\n5- Lastname"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile Picture",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjcxZDYyMTE5ODM5MjY4OTIxMDI3MSIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQzODQ0NSwiZXhwIjoxNjgwNDQwMjQ1fQ.l4zaRJ53xE6gd_fABw51izoLkkqpKRNMPi470tdRKzw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/MustafaDMS/OneDrive/Pictures/1674246503695.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/user/profilePic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"profilePic"
+							]
+						},
+						"description": "StartFragment\n\nTo Update User Profile Picture you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\nYou MUST ONLY select ONE profile picture at time.\n\nEndFragment"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cover Picture",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjcxZDYyMTE5ODM5MjY4OTIxMDI3MSIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQzODQ0NSwiZXhwIjoxNjgwNDQwMjQ1fQ.l4zaRJ53xE6gd_fABw51izoLkkqpKRNMPi470tdRKzw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/MustafaDMS/OneDrive/Pictures/Screenshots/2021-08-13 (1).png",
+										"/C:/Users/MustafaDMS/OneDrive/Pictures/Screenshots/2021-08-13 (2).png",
+										"/C:/Users/MustafaDMS/OneDrive/Pictures/Screenshots/2021-08-13.png",
+										"/C:/Users/MustafaDMS/OneDrive/Pictures/Screenshots/2021-10-05 (1).png",
+										"/C:/Users/MustafaDMS/OneDrive/Pictures/Screenshots/2021-10-05.png"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/user/coverPic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"coverPic"
+							]
+						},
+						"description": "To Update User Cover Picture you must be:\n\n1- Logined\n\n2- Confirmed your mail\n\n3- Your token is NOT expired\n\nYou MUST ONLY select ONE cover picture at time.\n\nEndFragment"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"MustafaSaad\",\r\n    \"email\": \"the333mask@gmail.com\",\r\n    \"password\": \"AA!45aaa\",\r\n    \"cPassword\": \"AA!45aaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						},
+						"description": "You must enter valid username (String, alphanumeric, min 3 charachter, max 25 characters)\n\nYou must enter valid email, only com net edu is allowed.\n\nPassword should match specific pattern, something that looks like this\n\nStartFragment\n\nAA!45aaa\n\nEndF"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"the333mask@gmail.com\",\r\n    \"password\": \"AA!45aaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Forget Code",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mustafa.diaa.70@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/sendForgetCode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"sendForgetCode"
+							]
+						},
+						"description": "If you forgot password, this is the first step to retreive it, by requesting a verification code that will be sent to your email, and then you should use it in \"**Reset Password**\" endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Your Password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mustafa.diaa.70@gmail.com\",\r\n    \"password\": \"AA!45aaa\",\r\n    \"cPassword\": \"AA!45aaa\",\r\n    \"forgetCode\": \"1116\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/forgetPassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"forgetPassword"
+							]
+						},
+						"description": "When you reset password, you can't enter the same old password, but rather, a new one.\n\nAfter then, your forget Code will be no longer active and cant be used again."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "dms__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk3ZWI5NDI3MDkwZmQ3NDA3MGEzMCIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY4MDQ0MTE3NSwiZXhwIjoxNjgwNDQyOTc1fQ.OdI0R60qI44clg3wXR_bcBqvmzFUTa2WbgrIJttHXYI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "If you have logged out of your account, you can't perform any operations like **update account**, **create post**, **add comment**..etc\n\nAnd definitely you must be logged in so you can log out.\n\nAnd your token must be active."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
